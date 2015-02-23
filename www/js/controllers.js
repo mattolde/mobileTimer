@@ -11,16 +11,6 @@ angular.module('starter.controllers', [])
     $scope.modal = modal;
   });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
@@ -33,16 +23,16 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
+.controller('TimersCtrl', function($scope) {
+  // Dummy data for testing
+  $scope.timers = [
+    { title: 'Boiled Eggs', id: 1 },
+    { title: 'Crunches', id: 2 },
+    { title: 'Sprints', id: 3 },
+    { title: 'Planks', id: 4 },
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('TimerCtrl', function($scope, $stateParams) {
+  // TODO load timer data to scope
 });
