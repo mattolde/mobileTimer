@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('timer.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
@@ -23,9 +23,9 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('TimersCtrl', function($scope) {
-  // Dummy data for testing
-  $scope.timers = [
+.controller('TimersCtrl', function($scope, $rootScope) {
+  // Dummy data for testing. Remove from root scope
+  $rootScope.timers = [
     { title: 'Boiled Eggs', id: 1 },
     { title: 'Crunches', id: 2 },
     { title: 'Sprints', id: 3 },
@@ -33,6 +33,16 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('TimerCtrl', function($scope, $stateParams) {
-  // TODO load timer data to scope
+.controller('TimerCtrl', function($scope, $rootScope, $stateParams) {
+  // TODO load timer data to scope. Dirty and needs to be changed and moved to a service
+  $scope.getTimer = function(timerId){
+    for(var i=0; i < $scope.timers.length; i++){
+      if($rootScope.timers[i].id === parseInt(timerId, 10)){
+        console.log('found it');
+        return $rootScope.timers[i];
+      }
+    }
+  };
+
+  $scope.timer = $scope.getTimer($stateParams.timerId);
 });
