@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
+var karma = require('gulp-karma');
 var sh = require('shelljs');
 
 var paths = {
@@ -27,6 +28,30 @@ gulp.task('sass', function(done) {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+});
+
+var testFiles = [
+  'lib/angular/angular.js',
+  'lib/angular-ui-router/release/angular-ui-router.js',
+  'lib/angular-*/*.js',
+  'lib/ionic/js/ionic.js',
+  'lib/ionic/js/ionic-angular.js',
+  'js/*.js',
+  'lib/angular-mocks/angular-mocks.js',
+  'tests/*Spec.js'
+];
+
+gulp.task('test', function() {
+  // Be sure to return the stream
+  return gulp.src(testFiles)
+    .pipe(karma({
+      configFile: 'karma.config.js',
+      action: 'run'
+    }))
+    .on('error', function(err) {
+      // Make sure failed tests cause gulp to exit non-zero
+      throw err;
+    });
 });
 
 gulp.task('install', ['git-check'], function() {
