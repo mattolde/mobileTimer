@@ -26,10 +26,10 @@ angular.module('timer.controllers', [])
 .controller('TimersCtrl', function($scope, $rootScope) {
   // Dummy data for testing. Remove from root scope
   $rootScope.timers = [
-    { title: 'Boiled Eggs', id: 1 },
-    { title: 'Crunches', id: 2 },
-    { title: 'Sprints', id: 3 },
-    { title: 'Planks', id: 4 },
+    { id: 1, title: 'Boiled Eggs', time: 60 },
+    { id: 2, title: 'Crunches', time: 120 },
+    { id: 3, title: 'Sprints', time: 80 },
+    { id: 4, title: 'Planks', time: 30 },
   ];
 })
 
@@ -38,7 +38,6 @@ angular.module('timer.controllers', [])
   $scope.getTimer = function(timerId){
     for(var i=0; i < $scope.timers.length; i++){
       if($rootScope.timers[i].id === parseInt(timerId, 10)){
-        console.log('found it');
         return $rootScope.timers[i];
       }
     }
