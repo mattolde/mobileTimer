@@ -13,3 +13,9 @@ Build using ionic framework. A HTML5 hybrid mobile app framework using the follo
 - AngualrJS
 - Gulp
 - SASS
+- Karma
+- Jasmine
+
+# Testing
+
+Located in www/tests
