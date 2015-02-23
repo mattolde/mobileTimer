@@ -43,5 +43,18 @@ angular.module('timer.controllers', [])
     }
   };
 
+  $scope.startCountDown = function(){
+    // TODO start count down from timer.time
+  };
+
+  $scope.stopCountDown = function(){
+    // TODO stop count down from timer.time
+  };
+
+  $scope.resetCountDown = function(){
+    // TODO reset count down to original timer.time
+  };
+
+  // set timer to scope
   $scope.timer = $scope.getTimer($stateParams.timerId);
 });
