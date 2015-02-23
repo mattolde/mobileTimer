@@ -31,17 +31,17 @@
     });
 
 
-    it('should START the count down', function(){
+    xit('should START the count down', function(){
       expect(true).toBe('test');
     });
 
 
-    it('should STOP the count down', function(){
+    xit('should STOP the count down', function(){
       expect(true).toBe(false);
     });
 
 
-    it('should RESET the count down', function(){
+    xit('should RESET the count down', function(){
       expect(true).toBe(false);
     });
 

@@ -30,20 +30,9 @@ gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
 });
 
-var testFiles = [
-  'lib/angular/angular.js',
-  'lib/angular-ui-router/release/angular-ui-router.js',
-  'lib/angular-*/*.js',
-  'lib/ionic/js/ionic.js',
-  'lib/ionic/js/ionic-angular.js',
-  'js/*.js',
-  'lib/angular-mocks/angular-mocks.js',
-  'tests/*Spec.js'
-];
-
 gulp.task('test', function() {
   // Be sure to return the stream
-  return gulp.src(testFiles)
+  return gulp.src([])
     .pipe(karma({
       configFile: 'karma.config.js',
       action: 'run'
